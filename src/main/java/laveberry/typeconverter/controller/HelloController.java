@@ -1,6 +1,7 @@
 package laveberry.typeconverter.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
+import laveberry.typeconverter.type.IpPort;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +23,13 @@ public class HelloController {
     public String helloV2(@RequestParam Integer data) {
         // 스프링이 String을 중간에서 타입변환 해줌
         System.out.println("data = " + data);
+        return "ok";
+    }
+
+    @GetMapping("/ip-port")
+    public String ipPort(@RequestParam IpPort ipPort) {
+        System.out.println("ipPort IP = " + ipPort.getIp());
+        System.out.println("ipPort PORT = " + ipPort.getPort());
         return "ok";
     }
 
